@@ -1,7 +1,7 @@
 import MessageForm from "./MessageForm";
 import UserMessage from "./UserMessage";
 import OtherUserMessage from "./OtherUserMessage";
-
+import chatImg from "../assets/chat.JPG";
 const ChatFeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
   const chat = chats && chats[activeChat];
@@ -55,7 +55,13 @@ const ChatFeed = (props) => {
   };
 
   renderMessages();
-  if (!chat) return "Loading ...";
+  if (!chat)
+    return (
+      <div>
+        <p className="create-chat">Create a chat to connect people</p>
+        <img className="chat-img" src={chatImg} alt="chat icon" />
+      </div>
+    );
   return (
     <div className="chat-feed">
       <div className="chat-title-container">
