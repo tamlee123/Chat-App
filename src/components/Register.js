@@ -88,7 +88,7 @@ const Register = () => {
               </button>
             </div>
           </form>
-          <h1>{error}</h1>
+          <h1 className="error">{error}</h1>
         </Main>
       </Col>
       <Col xs={0} sm={0} md={0} lg={7}>
