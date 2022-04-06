@@ -7,7 +7,9 @@ import Side from "../styledComponent/side";
 import Main from "../styledComponent/main";
 import birdImg from "../assets/bird.jpg";
 import Bird from "../styledComponent/bird";
+import dotenv from "dotenv";
 
+dotenv.config({ path: ".env" });
 const projectID = process.env.REACT_APP_PROJECTID;
 
 const Login = () => {

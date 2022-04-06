@@ -7,7 +7,9 @@ import { Col, Row } from "antd";
 import birdImg from "../assets/bird.jpg";
 import IconChat from "../assets/chatIcon.jpg";
 import Bird from "../styledComponent/bird";
+import dotenv from "dotenv";
 
+dotenv.config({ path: ".env" });
 const privateKey = process.env.REACT_APP_PRIVATE_KEY;
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -32,7 +34,7 @@ const Register = () => {
         navigate("/");
       }
     } catch (err) {
-      setError("Oops, incorrect credentials.");
+      setError("Oops, something went wrong, Please try again.");
     }
   };
 
@@ -50,7 +52,7 @@ const Register = () => {
         <Main>
           <div className="account">
             <p className="question">Already Have an Account?</p>
-            <button onClick={() => navigate("/login")} className="form-btn">
+            <button onClick={() => navigate("/")} className="form-btn">
               Sign In
             </button>
           </div>
