@@ -2,10 +2,11 @@ import MessageForm from "./MessageForm";
 import UserMessage from "./UserMessage";
 import OtherUserMessage from "./OtherUserMessage";
 import chatImg from "../assets/chat.JPG";
-const ChatFeed = (props) => {
-  const { chats, activeChat, userName, messages } = props;
-  const chat = chats && chats[activeChat];
+import { NewChatForm, ChatHeader } from "react-chat-engine";
 
+const ChatFeed = (props) => {
+  const { chats, activeChat, userName, messages, conn } = props;
+  const chat = chats && chats[activeChat];
   //if reciever read msg
   const renderReadReceipts = (message, isUserMessage) =>
     chat.people.map(
@@ -54,23 +55,27 @@ const ChatFeed = (props) => {
     });
   };
 
-  renderMessages();
   if (!chat)
     return (
       <div>
         <p className="create-chat">Create a chat to connect people</p>
         <img className="chat-img" src={chatImg} alt="chat icon" />
+        {props.renderNewChatForm ? (
+          props.renderNewChatForm(conn)
+        ) : (
+          <NewChatForm
+            onClose={props.onClose ? () => props.onClose() : undefined}
+          />
+        )}
       </div>
     );
   return (
     <div className="chat-feed">
       <div className="chat-title-container">
-        <div className="chat-title">{chat?.title}</div>
-        <div className="chat-subtitle">
-          {chat.people.map((person) => ` ${person.person.username}`)}
-        </div>
+        {props.renderChatHeader ? props.renderChatHeader(chat) : <ChatHeader />}
       </div>
-      {renderMessages()}
+      <div>{renderMessages()}</div>
+
       <div style={{ height: "100px" }} />
       <div className="message-form-container">
         <MessageForm {...props} chatId={activeChat} />
