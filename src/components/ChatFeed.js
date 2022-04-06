@@ -1,7 +1,7 @@
 import MessageForm from "./MessageForm";
 import UserMessage from "./UserMessage";
 import OtherUserMessage from "./OtherUserMessage";
-import chatImg from "../assets/chat.JPG";
+import chatImg from "../assets/chat.jpg";
 import { NewChatForm, ChatHeader } from "react-chat-engine";
 
 const ChatFeed = (props) => {
