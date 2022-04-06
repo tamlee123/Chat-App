@@ -242,8 +242,10 @@
   
   .error {
     color: rgb(248, 98, 105);
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
+    margin-left: 15%;
+    font-size: 15px;
   }
   @media screen and (max-width:900px){
     .chat-img{

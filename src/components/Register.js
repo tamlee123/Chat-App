@@ -34,7 +34,7 @@ const Register = () => {
         navigate("/");
       }
     } catch (err) {
-      setError("Oops, something went wrong, Please try again.");
+      setError("Oops, something went wrong");
     }
   };
 
@@ -88,7 +88,9 @@ const Register = () => {
               </button>
             </div>
           </form>
-          <h1 className="error">{error}</h1>
+          <h1 className="error" style={{ marginTop: "60px" }}>
+            {error}
+          </h1>
         </Main>
       </Col>
       <Col xs={0} sm={0} md={0} lg={7}>
