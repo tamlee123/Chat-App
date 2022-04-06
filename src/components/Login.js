@@ -89,7 +89,7 @@ const Login = () => {
             </div>
           </form>
 
-          <h1>{error}</h1>
+          <h3 className="error">{error}</h3>
         </Main>
       </Col>
       <Col xs={0} sm={0} md={0} lg={7}>
