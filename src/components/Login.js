@@ -1,7 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const projectID = "32f34d99-af3d-4830-9718-92751ffa16a0";
+import { Col, Row } from "antd";
+import IconChat from "../assets/chatIcon.jpg";
+import Side from "../styledComponent/side";
+import Main from "../styledComponent/main";
+import birdImg from "../assets/bird.jpg";
+import Bird from "../styledComponent/bird";
+
+const projectID = process.env.REACT_APP_PROJECTID;
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -26,48 +33,69 @@ const Login = () => {
       localStorage.setItem("password", password);
 
       window.location.reload();
+
       if (userExists) {
         navigate("/");
       }
+
       setError("");
     } catch (err) {
-      setError("Oops, incorrect credentials.");
+      setError("Invalid username or password");
     }
   };
 
   return (
-    <div className="wrapper">
-      <div className="form">
-        <h1 className="title">Chat Application</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="input"
-            placeholder="Username"
-            required
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="input"
-            placeholder="Password"
-            required
-          />
-          <div align="center">
-            <button type="submit" className="button">
-              <span>Start chatting</span>
+    <Row style={{ display: "flex", height: "100%" }}>
+      <Col xs={0} sm={0} md={0} lg={8}>
+        <Side>
+          <div className="messenger">
+            <img className="IconChat" src={IconChat} alt="chat icon" />
+            <p className="converse">Convese With Your Friends!</p>
+          </div>
+        </Side>
+      </Col>
+      <Col xs={24} sm={24} md={24} lg={9}>
+        <Main>
+          <div className="account">
+            <p className="question">Don't have an account?</p>
+            <button onClick={() => navigate("/register")} className="form-btn">
+              Register
             </button>
           </div>
-        </form>
-        <button onClick={() => navigate("/register")}>
-          Dont have an account?
-        </button>
-        <h1>{error}</h1>
-      </div>
-    </div>
+
+          <form onSubmit={handleSubmit} className="inputForm">
+            <p className="form-greeting">Welcome Back</p>
+            <div className="formDiv">
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Username"
+                required
+              />
+
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+                required
+              />
+              <button type="submit" className="loginButton">
+                Start chatting
+              </button>
+            </div>
+          </form>
+
+          <h1>{error}</h1>
+        </Main>
+      </Col>
+      <Col xs={0} sm={0} md={0} lg={7}>
+        <Bird>
+          <img src={birdImg} alt="bird img"></img>
+        </Bird>
+      </Col>
+    </Row>
   );
 };
 

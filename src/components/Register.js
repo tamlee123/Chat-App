@@ -1,7 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Main from "../styledComponent/main";
+import Side from "../styledComponent/side";
+import { Col, Row } from "antd";
+import birdImg from "../assets/bird.jpg";
+import IconChat from "../assets/chatIcon.jpg";
+import Bird from "../styledComponent/bird";
 
+const privateKey = process.env.REACT_APP_PRIVATE_KEY;
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -12,8 +19,9 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     const authObject = {
-      "PRIVATE-KEY": "34e83592-42f1-4eaf-ab3a-45024c737190",
+      "PRIVATE-KEY": privateKey,
     };
+
     try {
       const register = await axios.post(
         "https://api.chatengine.io/users/",
@@ -29,46 +37,68 @@ const Register = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="form">
-        <h1 className="title">Chat Application</h1>
-        <form onSubmit={handleRegister}>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="input"
-            placeholder="Username"
-            required
-          />
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="input"
-            placeholder="Email"
-            required
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="input"
-            placeholder="Password"
-            required
-          />
-          <div align="center">
-            <button type="submit" className="button">
-              <span>SignUp</span>
+    <Row style={{ display: "flex", height: "100%" }}>
+      <Col xs={0} sm={0} md={0} lg={8}>
+        <Side>
+          <div className="messenger">
+            <img className="IconChat" src={IconChat} alt="chat icon" />
+            <p className="converse">Convese With Your Friends!</p>
+          </div>
+        </Side>
+      </Col>
+      <Col xs={24} sm={24} md={24} lg={9}>
+        <Main>
+          <div className="account">
+            <p className="question">Already Have an Account?</p>
+            <button onClick={() => navigate("/login")} className="form-btn">
+              Sign In
             </button>
           </div>
-        </form>
-        <button onClick={() => navigate("/login")}>
-          Already have an account
-        </button>
-        <h1>{error}</h1>
-      </div>
-    </div>
+          <form onSubmit={handleRegister} className="inputForm">
+            <p className="form-greeting">Let's Chat</p>
+            <div className="formDiv">
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="input"
+                placeholder="Username"
+                required
+              />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="input"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="input"
+                placeholder="Password"
+                required
+              />
+              <button type="submit" className="loginButton">
+                Sign Up
+              </button>
+            </div>
+          </form>
+          <h1>{error}</h1>
+        </Main>
+      </Col>
+      <Col xs={0} sm={0} md={0} lg={7}>
+        <Bird>
+          <img
+            style={{ width: "600px", height: "700px" }}
+            src={birdImg}
+            alt="bird img"
+          ></img>
+        </Bird>
+      </Col>
+    </Row>
   );
 };
 
