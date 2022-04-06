@@ -59,7 +59,7 @@ const ChatFeed = (props) => {
     return (
       <div>
         <p className="create-chat">Create a chat to connect people</p>
-        <img className="chat-img" src={chatImg} alt="chat icon" />
+        <img className="chat-img" src={chatImg} alt="chat connect pic" />
         {props.renderNewChatForm ? (
           props.renderNewChatForm(conn)
         ) : (

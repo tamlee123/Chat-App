@@ -5,7 +5,7 @@ import Main from "../styledComponent/main";
 import Side from "../styledComponent/side";
 import { Col, Row } from "antd";
 import birdImg from "../assets/bird.jpg";
-import IconChat from "../assets/chatIcon.jpg";
+import iconChat from "../assets/chatIcon.jpg";
 import Bird from "../styledComponent/bird";
 import dotenv from "dotenv";
 
@@ -43,7 +43,7 @@ const Register = () => {
       <Col xs={0} sm={0} md={0} lg={8}>
         <Side>
           <div className="messenger">
-            <img className="IconChat" src={IconChat} alt="chat icon" />
+            <img className="IconChat" src={iconChat} alt="chat icon" />
             <p className="converse">Convese With Your Friends!</p>
           </div>
         </Side>
