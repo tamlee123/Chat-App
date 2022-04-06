@@ -22,7 +22,7 @@ const Main = styled.div`
     font-size: 14px;
     line-height: 19px;
     text-align: center;
-    color: #019267;
+    color: #01befe;
   }
   .form-btn {
     position: absolute;
@@ -36,9 +36,9 @@ const Main = styled.div`
     border: none;
     border-radius: 5px;
     text-align: center;
-    color: #019267;
+    color: #3db2ff;
     &:hover {
-      border: 2px solid #004346;
+      border: 2px solid #0077b6;
     }
   }
   .inputForm {
@@ -73,7 +73,7 @@ const Main = styled.div`
       margin-bottom: 1.5rem;
       border-radius: 0.2rem;
       background-color: rgb(255, 255, 255);
-      border: 1px solid green;
+      border: 1px solid #01befe;
       width: 100%;
       transition: all 0.3s;
       outline: none;
@@ -88,7 +88,7 @@ const Main = styled.div`
     font-weight: bold;
     font-size: 16px;
     line-height: 24px;
-    background: #019267;
+    background: #01befe;
     border-radius: 3px;
     color: #ffffff;
     border: none;

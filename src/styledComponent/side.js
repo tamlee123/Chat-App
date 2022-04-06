@@ -9,8 +9,8 @@ const Side = styled.div`
   top: 0px;
   background-image: linear-gradient(
       180deg,
-      rgba(60, 179, 113, 0.3),
-      rgba(60, 179, 113, 0.3)
+      rgba(0, 191, 255, 0.3),
+      rgba(0, 191, 255, 0.3)
     ),
     url(${bgImg});
   background-repeat: no-repeat;
