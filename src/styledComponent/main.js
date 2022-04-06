@@ -6,8 +6,8 @@ const Main = styled.div`
   top: 0px;
   .account {
     position: relative;
-    left: 40%;
-    width: 351px;
+    left: 15%;
+    width: 380px;
     height: 54px;
     top: 30px;
     font-family: Open Sans;
